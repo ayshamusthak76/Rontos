@@ -14,6 +14,8 @@ mic = sr.Microphone()
 car_start = 0
 arm_state = "home"
 
+stoptalk=0
+
 print("hello")
 
 engine = pyttsx3.init("espeak")
@@ -41,17 +43,8 @@ def wishMe():
     
 
 def takeCommand():
-    global car_start
+    global car_start, stoptalk
     query = None
-    # hour = int(datetime.now().hour)    
-    # if hour>=0 and hour<12:
-    #     speak("Good Morning!" + MASTER)
-    # elif hour>=12 and hour<18:
-    #     speak("Good Afternoon!" + MASTER)
-    # else:
-    #     speak("Good Evening!" + MASTER)
-    # # speak("I am Rontos.. How may I help you?")
-    # speak("Hello there, How may I help you")
     
     while query is None:
         r = sr.Recognizer()
@@ -103,6 +96,9 @@ def takeCommand():
         arm_state = "pickup"
         # car.stop_car()
         # arm.pickup()
+    elif query.find('thanks') != -1 or query.find('Bye') != -1:
+        speak("Returning back")
+        stoptalk=1
 
     # return car_start
     

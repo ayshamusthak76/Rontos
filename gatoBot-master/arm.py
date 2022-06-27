@@ -33,7 +33,7 @@ def home():
     # sc.move_servo(pwm,8, 80)
     # sc.move_servo(pwm,9, 45)
     sc.move_servo(pwm, 4, 135)
-    sc.move_servo(pwm,5, 100)
+    sc.move_servo(pwm,5, 160)
     sc.move_servo(pwm, 6, 200)
     sc.move_servo(pwm,7, 80)
     sc.move_servo(pwm,8, 80)
@@ -55,21 +55,21 @@ def wave():
 
 def pickup():
     print('pickup')
-    sc.move_servo(pwm,9, 0)
-    sc.move_servo(pwm, 4, 135)
-    sc.move_servo(pwm,5, 60)
-    sc.move_servo(pwm,6, 180)
-    sc.move_servo(pwm,7, 50)
-    sc.move_servo(pwm,8, 100)
-    sc.move_servo(pwm,9, 270)
+    sc.pick_move(pwm,9, 0)
+    sc.pick_move(pwm, 4, 135)
+    sc.pick_move(pwm,5, 60)
+    sc.pick_move(pwm,6, 180)
+    sc.pick_move(pwm,7, 50)
+    sc.pick_move(pwm,8, 100)
+    sc.pick_move(pwm,9, 270)
 
 def dropoff():
     print('dropoff')
-    sc.move_servo(pwm, 4, 45)
-    sc.move_servo(pwm,9, 0)
-    sc.move_servo(pwm, 5, 185) 
-    sc.move_servo(pwm, 6, 230)    
-    sc.move_servo(pwm,9, 270)
+    sc.pick_move(pwm, 4, 45)
+    sc.pick_move(pwm,9, 0)
+    sc.pick_move(pwm, 5, 185) 
+    sc.pick_move(pwm, 6, 230)    
+    sc.pick_move(pwm,9, 270)
 
 	
 def check_dist1():

@@ -82,6 +82,22 @@ def move_servo(pwm, servo_channel, angle):
     if prev_pwms[servo_channel]< pwm_step:
         for i in range(prev_pwms[servo_channel],pwm_step,5):
             pwm.set_pwm(servo_channel, 0, i)
+           # time.sleep(0.1)
+    else:
+        for i in range(prev_pwms[servo_channel],pwm_step,-5):
+            pwm.set_pwm(servo_channel, 0, i)
+         #   time.sleep(0.1)
+    prev_pwms[servo_channel] =  pwm_step
+    time.sleep(2)
+
+def move_pick(pwm, servo_channel, angle):
+    '''
+    We move the specified servo to the given angle.
+    '''
+    pwm_step = convert_angle_to_pwm_board_step(angle)
+    if prev_pwms[servo_channel]< pwm_step:
+        for i in range(prev_pwms[servo_channel],pwm_step,5):
+            pwm.set_pwm(servo_channel, 0, i)
             time.sleep(0.1)
     else:
         for i in range(prev_pwms[servo_channel],pwm_step,-5):

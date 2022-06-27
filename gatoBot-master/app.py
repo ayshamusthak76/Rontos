@@ -35,29 +35,29 @@ def reroute(changepin):
 		motors.turnRight()
 	elif changePin == 4:
 		motors.backward()
-	
-		
-		# arm.home()
+	# elif changePin == 5:
+	# 	motors.stop()
+
+	elif changePin == 6:	
+		arm.home()
 	elif changePin == 7:
 		arm.wave()
-	# elif changePin == 8:
-	# 	arm.arm()
+	elif changePin == 9:
+		arm.pickup() 
 	elif changePin == 8:
 		speech.wishMe()
 		while True:
 			speech.takeCommand()         
-			print("Wrong command")
-	elif changePin == 9:
-		# speech.wishMe()
-		speech.takeCommand()         
-	elif changePin == 9:
-		arm.wave()
+			if speech.stoptalk:
+				break
+	      	
 	elif changePin == 10:
 		os.system('python car.py')
 	
 	elif changePin == 5:
 		motors.stop()
-
+	
+	
 	response = make_response(redirect(url_for('index')))
 	return(response)
 
