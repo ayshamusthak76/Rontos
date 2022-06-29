@@ -57,10 +57,11 @@ def pickup():
     print('pickup')
     sc.pick_move(pwm,9, 0)
     sc.pick_move(pwm, 4, 135)
-    sc.pick_move(pwm,5, 60)
-    sc.pick_move(pwm,6, 180)
     sc.pick_move(pwm,7, 50)
-    sc.pick_move(pwm,8, 100)
+    # sc.pick_move(pwm,8, 100)
+    sc.pick_move(pwm,8, 220)
+    sc.pick_move(pwm,5, 60)
+    sc.pick_move(pwm,6, 180)    
     sc.pick_move(pwm,9, 270)
 
 def dropoff():
@@ -83,16 +84,17 @@ def check_dist1():
         GPIO.output(TRIG, True)                  #Set TRIG as HIGH
         time.sleep(0.00001)                           #Delay of 0.00001 seconds
         GPIO.output(TRIG, False)                 #Set TRIG as LOW
-
+        pulse_start = 0
+        pulse_end=0
         while GPIO.input(ECHO)==0:              #Check whether the ECHO is LOW
         #     GPIO.output(led, False)             
             pulse_start = time.time()
-        print("out1")
+        
         while GPIO.input(ECHO)==1:              #Check whether the ECHO is HIGH
         #     GPIO.output(led, False) 
             pulse_end = time.time()
-        print("out")
-        time.sleep(0.2)
+        
+        time.sleep(0.01)
         pulse_duration = pulse_end - pulse_start #time to get back the pulse to sensor
         distance = pulse_duration * 17150        #Multiply pulse duration by 17150 (34300/2) to get distance
         distance = round(distance,2)                 #Round to two decimal points
@@ -131,5 +133,7 @@ def auto():
         # pickup(pwm, 24)
         # time.sleep(5)
 
-# home(pwm)
+# home()
+# pickup()
+# dropoff()
 # wave()        

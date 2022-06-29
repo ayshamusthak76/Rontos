@@ -35,14 +35,15 @@ GPIO.output(in4, GPIO.LOW)
 # print('Set frequency')
 # pwm.set_pwm_freq(sc.SERVO_MOTOR_FREQUENCY)
 
-sa.home()
+
 def stopcar():
     GPIO.output(in1, GPIO.LOW)
     GPIO.output(in2, GPIO.LOW)
     GPIO.output(in3, GPIO.LOW)
     GPIO.output(in4, GPIO.LOW)
+
 while True:
-# arm.home()
+
     dist = sa.check_dist1()
     print(dist)
     if dist>30:
@@ -53,9 +54,8 @@ while True:
     else:
         stopcar()
         print('Stopping car!!!!!!')
-        # sa.home()
+        sa.home()
         sa.pickup()
         sa.dropoff()
         sa.home()
         continue
-

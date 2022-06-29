@@ -52,7 +52,7 @@ def reroute(changepin):
 				break
 	      	
 	elif changePin == 10:
-		arm.home()
+
 		os.system('python car.py')
 	
 	elif changePin == 5:

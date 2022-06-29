@@ -79,14 +79,9 @@ def takeCommand():
             motors.stop()
 
     elif query.find('hello') != -1 or query.find('wave') != -1:
-        speak("Hello There!")
+        speak("Hello There, How was your day? ")
         arm.wave()
 
-    elif query.find('stop') != -1 or query.find('top') != -1:
-        if car_start:
-            car_start = 0
-            speak("Getting the motors to a stop!")
-            motors.stop()
 
     # elif 'stop' in words:
     elif query.find('stop') != -1 or query.find('top') != -1:
